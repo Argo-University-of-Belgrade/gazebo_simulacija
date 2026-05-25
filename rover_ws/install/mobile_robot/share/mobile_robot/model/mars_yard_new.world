@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<!--
+  ERC 2026 Mars Yard Simulation World — HEIGHTMAP VERSION
+  ========================================================
+  Terrain is generated from model/heightmap.png (513x513 grayscale).
+  White pixels = high points, black pixels = low points (craters).
+
+  World footprint:  20 m x 20 m
+  Height range:     0 - 0.5 m (lowest crater floor to highest ridge)
+
+  ArUco marker stands are kept for ERC navigation tasks.
+-->
+<sdf version="1.6">
+  <world name="mars_yard">
+
+    <!-- ===================== LIGHTING ===================== -->
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 50 0 0.3 0.5</pose>
+      <diffuse>0.9 0.7 0.5 1</diffuse>
+      <specular>0.3 0.2 0.1 1</specular>
+      <direction>-0.5 0.3 -0.8</direction>
+    </light>
+
+    <scene>
+      <ambient>0.3 0.2 0.15 1</ambient>
+      <background>0.55 0.35 0.2 1</background>
+      <sky>
+        <clouds>
+          <speed>0</speed>
+        </clouds>
+      </sky>
+    </scene>
+
+    <!-- ===================== PHYSICS ===================== -->
+    <physics type="ode">
+      <real_time_update_rate>1000</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <sor>1.4</sor>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+
+    <!-- ===================== HEIGHTMAP TERRAIN ===================== -->
+    <!--
+      The <uri>file://heightmap.png</uri> resolves via GAZEBO_RESOURCE_PATH,
+      which the launch file sets to <package>/share/mobile_robot/model.
+    -->
+    <model name="mars_terrain">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <heightmap>
+              <uri>file://heightmap.png</uri>
+              <size>20 20 0.5</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.6</mu>
+                <mu2>0.6</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0.001</soft_cfm>
+                <soft_erp>0.15</soft_erp>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>true</cast_shadows>
+          <geometry>
+            <heightmap>
+              <uri>file://heightmap.png</uri>
+              <size>20 20 0.5</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0.15 1</ambient>
+            <diffuse>0.7 0.35 0.18 1</diffuse>
+            <specular>0.1 0.05 0.02 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ===================== ARUCO MARKER STANDS ===================== -->
+    <!-- Marker Stand 0 - near start (0,0) for reference -->
+    <model name="aruco_stand_0">
+      <static>true</static>
+      <pose>1.5 0 0.3 0 0 0</pose>
+      <link name="pole">
+        <collision name="col"><geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="board">
+        <pose>0.05 0 0.85 0 0 0</pose>
+        <collision name="col"><geometry><box><size>0.02 0.3 0.3</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.02 0.3 0.3</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="pole_board" type="fixed"><parent>pole</parent><child>board</child></joint>
+    </model>
+
+    <!-- Marker Stand 1 - east side, near right crater area -->
+    <model name="aruco_stand_1">
+      <static>true</static>
+      <pose>6.0 1.5 0.3 0 0 1.57</pose>
+      <link name="pole">
+        <collision name="col"><geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="board">
+        <pose>0.05 0 0.85 0 0 0</pose>
+        <collision name="col"><geometry><box><size>0.02 0.3 0.3</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.02 0.3 0.3</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="pole_board" type="fixed"><parent>pole</parent><child>board</child></joint>
+    </model>
+
+    <!-- Marker Stand 2 - between center and left crater -->
+    <model name="aruco_stand_2">
+      <static>true</static>
+      <pose>-2.0 -1.5 0.3 0 0 -0.785</pose>
+      <link name="pole">
+        <collision name="col"><geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="board">
+        <pose>0.05 0 0.85 0 0 0</pose>
+        <collision name="col"><geometry><box><size>0.02 0.3 0.3</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.02 0.3 0.3</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="pole_board" type="fixed"><parent>pole</parent><child>board</child></joint>
+    </model>
+
+    <!-- Marker Stand 3 - far west, near large left crater -->
+    <model name="aruco_stand_3">
+      <static>true</static>
+      <pose>-6.0 0 0.3 0 0 0</pose>
+      <link name="pole">
+        <collision name="col"><geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="board">
+        <pose>0.05 0 0.85 0 0 0</pose>
+        <collision name="col"><geometry><box><size>0.02 0.3 0.3</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.02 0.3 0.3</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="pole_board" type="fixed"><parent>pole</parent><child>board</child></joint>
+    </model>
+
+    <!-- Marker Stand 4 - far east -->
+    <model name="aruco_stand_4">
+      <static>true</static>
+      <pose>8.0 -1.0 0.3 0 0 3.14</pose>
+      <link name="pole">
+        <collision name="col"><geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.03</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="board">
+        <pose>0.05 0 0.85 0 0 0</pose>
+        <collision name="col"><geometry><box><size>0.02 0.3 0.3</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.02 0.3 0.3</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="pole_board" type="fixed"><parent>pole</parent><child>board</child></joint>
+    </model>
+
+    <!-- ===================== BOUNDARY WALLS (invisible) ===================== -->
+    <model name="wall_north"><static>true</static><pose>0 11 0.5 0 0 0</pose>
+      <link name="link"><collision name="col"><geometry><box><size>22 0.2 1.0</size></box></geometry></collision></link></model>
+    <model name="wall_south"><static>true</static><pose>0 -11 0.5 0 0 0</pose>
+      <link name="link"><collision name="col"><geometry><box><size>22 0.2 1.0</size></box></geometry></collision></link></model>
+    <model name="wall_east"><static>true</static><pose>11 0 0.5 0 0 0</pose>
+      <link name="link"><collision name="col"><geometry><box><size>0.2 22 1.0</size></box></geometry></collision></link></model>
+    <model name="wall_west"><static>true</static><pose>-11 0 0.5 0 0 0</pose>
+      <link name="link"><collision name="col"><geometry><box><size>0.2 22 1.0</size></box></geometry></collision></link></model>
+
+  </world>
+</sdf>

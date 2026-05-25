@@ -1,1 +1,1 @@
-gazebo_ros:geometry_msgs:joint_state_publisher:rclpy:robot_state_publisher:ros_gz_bridge:xacro
+gazebo_ros:geometry_msgs:joint_state_publisher:nav_msgs:python3-numpy:rcl_interfaces:rclpy:robot_state_publisher:ros_gz_bridge:std_srvs:visualization_msgs:xacro

@@ -19,6 +19,11 @@
   <exec_depend>ros_gz_bridge</exec_depend>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
 
 
   <export>

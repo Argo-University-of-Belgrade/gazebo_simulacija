@@ -1,0 +1,36 @@
+[0.000s] Invoking command in '/home/toto/rover_ws/build/mobile_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/toto/rover_ws/build/mobile_robot -- -j8 -l8
+[0.028s] Invoked command in '/home/toto/rover_ws/build/mobile_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/toto/rover_ws/build/mobile_robot -- -j8 -l8
+[0.036s] Invoking command in '/home/toto/rover_ws/build/mobile_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/toto/rover_ws/build/mobile_robot
+[0.043s] -- Install configuration: ""
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/launch
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/launch/gazebo_model.launch.py
+[0.043s] -- Installing: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/launch/gazebo_mars_launch.py
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/model
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/model/robot.xacro
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/model/mars_yard.world
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/model/heightmap.png
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/model/robot.gazebo
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/maps
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/maps/newMap.npy
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/maps/newMapPoints.npy
+[0.043s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/maps/newMapLayers.npy
+[0.043s] -- Installing: /home/toto/rover_ws/install/mobile_robot/lib/mobile_robot/rover_controller.py
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/lib/mobile_robot/astar_planner_node.py
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/lib/mobile_robot/global_path.py
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/lib/mobile_robot/map_processing.py
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/ament_index/resource_index/package_run_dependencies/mobile_robot
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/ament_index/resource_index/parent_prefix_path/mobile_robot
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.sh
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.dsv
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/environment/path.sh
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/environment/path.dsv
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/local_setup.bash
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/local_setup.sh
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/local_setup.zsh
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/local_setup.dsv
+[0.044s] -- Installing: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/package.dsv
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/ament_index/resource_index/packages/mobile_robot
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig.cmake
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig-version.cmake
+[0.044s] -- Up-to-date: /home/toto/rover_ws/install/mobile_robot/share/mobile_robot/package.xml
+[0.045s] Invoked command in '/home/toto/rover_ws/build/mobile_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/toto/rover_ws/build/mobile_robot

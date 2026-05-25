@@ -46,11 +46,17 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mobile_robot" TYPE DIRECTORY FILES
     "/home/toto/rover_ws/src/mobile_robot/launch"
     "/home/toto/rover_ws/src/mobile_robot/model"
+    "/home/toto/rover_ws/src/mobile_robot/maps"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mobile_robot" TYPE PROGRAM FILES "/home/toto/rover_ws/src/mobile_robot/scripts/move.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mobile_robot" TYPE PROGRAM FILES
+    "/home/toto/rover_ws/src/mobile_robot/mobile_robot/rover_controller.py"
+    "/home/toto/rover_ws/src/mobile_robot/mobile_robot/astar_planner_node.py"
+    "/home/toto/rover_ws/src/mobile_robot/mobile_robot/global_path.py"
+    "/home/toto/rover_ws/src/mobile_robot/mobile_robot/map_processing.py"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

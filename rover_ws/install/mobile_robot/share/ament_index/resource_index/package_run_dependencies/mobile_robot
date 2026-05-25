@@ -1,1 +1,1 @@
-joint_state_publisher;robot_state_publisher;gazebo_ros;xacro;ros_gz_bridge;rclpy;geometry_msgs;ament_lint_auto;ament_lint_common
+joint_state_publisher;robot_state_publisher;gazebo_ros;xacro;ros_gz_bridge;rclpy;geometry_msgs;nav_msgs;std_srvs;visualization_msgs;rcl_interfaces;python3-numpy;ament_lint_auto;ament_lint_common

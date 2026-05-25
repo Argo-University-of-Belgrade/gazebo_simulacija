@@ -12,19 +12,16 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 install(
-	DIRECTORY launch model
+	DIRECTORY launch model maps
 	DESTINATION share/${PROJECT_NAME}
 )
 
 install(
   PROGRAMS
-    #launch/autonomous_movement.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(
-  PROGRAMS
-    scripts/move.py
+    mobile_robot/rover_controller.py
+    mobile_robot/astar_planner_node.py
+    mobile_robot/global_path.py
+    mobile_robot/map_processing.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
